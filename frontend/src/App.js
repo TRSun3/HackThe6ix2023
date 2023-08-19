@@ -4,7 +4,8 @@
  * App.js
  */
 
-// Importsimport React from "react";
+// Imports
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemImpact from "./ItemImpact";
 import NavBar from "./components/NavBar";

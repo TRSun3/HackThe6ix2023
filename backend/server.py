@@ -1,8 +1,10 @@
 from flask import Flask
 from get_cohere_data import get_raw_materials, get_manufacturers, sort_goods, sort_materials
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # This will allow all origins, you can customize this as needed
+
 
 @app.route('/', methods=['GET'])
 def index():
