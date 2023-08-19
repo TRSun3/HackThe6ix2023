@@ -10,6 +10,7 @@ export default function ResultsScreen() {
     const [device, setDevice] = useState(null);
     const [loading, isLoading] = useState(false);
     const location = useLocation();
+    
     const acceptable_devices = ['iphone', 'android']
 
 
@@ -17,6 +18,7 @@ export default function ResultsScreen() {
         const fetchData = async () => {
             console.log(location.state);
             setDevice(location.state);
+            if (device === null) return;
 
             if (!acceptable_devices.includes(location.state)) {
                 setDevice("Invalid Device");
@@ -24,15 +26,15 @@ export default function ResultsScreen() {
                 return;
             }
         
-            const response = await axios.get("http://localhost:5000/api/iphone");
+            const response = await axios.get(`http://localhost:5000/api/${device}`);
             setManufacturers(response.data.manufacturers);
             setRawMaterials(response.data.raw_materials);
             isLoading(true);
         };
 
-        
+
         fetchData();
-    }, []);
+    }, [device]);
 
 
     return (
