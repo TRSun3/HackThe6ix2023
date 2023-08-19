@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/NavBar.css'
 import { useLocation } from 'react-router-dom'
+import topLogo from "../assets/temporary_shit_logo4.png"
 
 
 export default function NavBar() {
@@ -12,13 +13,18 @@ export default function NavBar() {
 
 
     return (
+        <>
+        <div className='whiteBoxLogo'>
+            
+        </div>
+        <img src={topLogo} alt="" className="top-logo"/>
         <div className='nav-container'>
-            <div>Hello</div>
             <div className='nav'>
                 <div>Home</div>
                 <div>About Us</div>
                 <div>Contact Us</div>
             </div>
         </div>
+        </>
     )
 }

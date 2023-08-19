@@ -1,20 +1,26 @@
 .upload-container {
+    /* margin-top:20%; */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 20px;
     width: 100%;
     opacity: 1;
-    background-color: white;
+    background-color: none;
 }
 
 .center-logo {
     width: 30%;
+    margin-top:10%;
 }
+
 
 .slogan {
     display: flex;
     flex-direction: row;
+    color:white;
+    font-size: 20px;
+    margin-top:20px;
 }
 
 .origin-text {
@@ -33,5 +39,44 @@
     width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.aboutUs{
+    width:40%;
+    justify-content: center;
+    margin-top:60px;
+    margin-top:200px;
+}
+.aboutEco{
+    text-align:center;
+    color:white;
+    display:block;
     
+}
+.paragraph{
+    margin-top:30px;
+    display:block;
+    text-align:center;
+    color:white;
+    line-height:2em;
+}
+.abtUsContainer{
+    display:flex;
+    background-color: black;
+    justify-content: center;
+    height:500px;
+}
+#grad{
+    background-color: rgb(0, 0, 0); /* For browsers that do not support gradients */
+    background-image: linear-gradient(rgb(25, 36, 51), rgb(0, 0, 0));
+}
+.footer{
+    display:flex;
+    justify-content:space-between;
+    background-color: rgb(55, 55, 55);
+}
+.footerText{
+    color:white;
+}
+.socialMedia{
+    width:10%;
 }
