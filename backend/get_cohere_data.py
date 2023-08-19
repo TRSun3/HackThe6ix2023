@@ -37,7 +37,7 @@ def sort_materials(data):
     raw_materials = {}
 
     cleaned_data = re.sub(r'^\d+\.\s+', '', data, flags=re.MULTILINE)
-
+    cleaned_data = cleaned_data.replace('-', '')
     lines = cleaned_data.strip().split('\n')
 
     for line in lines:
@@ -60,7 +60,7 @@ def sort_goods(data):
 
     # Use regular expression to remove numbers and leading whitespace
     cleaned_data = re.sub(r'^\d+\.\s+', '', data, flags=re.MULTILINE)
-
+    cleaned_data = cleaned_data.replace('-', '')
     lines = cleaned_data.strip().split('\n')
 
     for line in lines:
