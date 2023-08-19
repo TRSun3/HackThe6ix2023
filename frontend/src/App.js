@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <NavBar/>
+        {/* <NavBar/> */}
         <Routes>
             <Route path="/" element={<UploadScreen />} />
             <Route path="/results" element={<ResultsScreen />} />

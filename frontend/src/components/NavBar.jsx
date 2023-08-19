@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/NavBar.css'
 import { useLocation } from 'react-router-dom'
 
 
@@ -11,12 +12,12 @@ export default function NavBar() {
 
 
     return (
-        <div className='relative flex w-full justify-between items-center bg-yellow-50 px-8 py-5 gap-16'>
-            <div class='flex items-center gap-16'>
-                <div>Logo</div>
-                <div>Marks</div>
-                <div>Achievements</div>
-                <div>Users</div>
+        <div className='nav-container'>
+            <div>Hello</div>
+            <div className='nav'>
+                <div>Home</div>
+                <div>About Us</div>
+                <div>Contact Us</div>
             </div>
         </div>
     )

@@ -1,0 +1,37 @@
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    opacity: 1;
+    background-color: white;
+}
+
+.center-logo {
+    width: 30%;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: row;
+}
+
+.origin-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E90FF;
+}
+
+.sustainability-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FF8C00;
+}
+
+.upload {
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
