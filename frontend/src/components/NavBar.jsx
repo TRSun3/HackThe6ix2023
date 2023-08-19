@@ -14,15 +14,12 @@ export default function NavBar() {
 
     return (
         <>
-        <div className='whiteBoxLogo'>
-            
-        </div>
+        <div className='whiteBoxLogo'></div>
         <img src={topLogo} alt="" className="top-logo"/>
         <div className='nav-container'>
             <div className='nav'>
-                <div>Home</div>
-                <div>About Us</div>
-                <div>Contact Us</div>
+                <a href='#home' className='nav-item'>Home</a>
+                <a href='#about-us' className='nav-item'>About Us</a>
             </div>
         </div>
         </>

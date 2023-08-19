@@ -39,7 +39,7 @@ export default function UploadScreen() {
     <>
       <div style={bgStyles}>
         <NavBar />
-        <div className="upload-container">
+        <div className="upload-container" id="home">
           <img src={centerLogo} alt="" className="center-logo" />
           <div className="slogan">
             Tracing Tech&nbsp;
@@ -79,7 +79,7 @@ export default function UploadScreen() {
       </div>
 
       <img src={earth} alt="" className="earth" />
-      <div className="abtUsContainer" id="grad">
+      <div className="abtUsContainer" id="about-us">
         <div className="aboutUs">
           <h1 className="aboutEco">About EcoLink Tech</h1>
           <p className="paragraph">
