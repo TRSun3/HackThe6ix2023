@@ -12,11 +12,11 @@ export default function ResultsScreen() {
         axios.get("http://localhost:5000/api/iphone")
         .then((response) => {
             console.log(response);
+            console.log(response.data.manufacturers);
+            console.log(response.data.raw_materials);
             setManufacturers(response.data.manufacturers);
-            setRawMaterials(response.data.rawMaterials);
+            setRawMaterials(response.data.raw_materials);
             isLoading(true);
-            console.log(manufacturers);
-            console.log(rawMaterials);
         })
         .catch((error) => {
             console.log(error);

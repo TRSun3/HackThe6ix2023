@@ -1,0 +1,25 @@
+.footer{
+    display:flex;
+    justify-content: space-between;
+    background-color: rgb(36, 36, 36);
+    padding: 20px;
+    align-items: center;
+}
+
+.footerTexts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5%;
+    margin-left: 3%;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+.socialMedia{
+    max-width:20%;
+    height:auto;
+    margin-right:3%;
+}

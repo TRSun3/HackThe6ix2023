@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30px;
     width: 100%;
     opacity: 1;
     background-color: none;
@@ -63,34 +63,14 @@
     display:flex;
     background-color: black;
     justify-content: center;
-    height:500px;
+    min-height: max-content;
+    padding-bottom: 3%;
 }
-#grad{
+#about-us{
     background-color: rgb(0, 0, 0); 
     background-image: linear-gradient(rgb(25, 36, 51), rgb(0, 0, 0));
 }
-.footer{
-    display:flex;
-    justify-content:space-between;
-    background-color: rgb(36, 36, 36);
-    height:200px;
-    align-items: center;
-}
-.footerText{
-    color:white;
-    margin-left:5%;
 
-}
-.footerText1{
-    color:white;
-    margin-left:45%;
-    
-}
-.socialMedia{
-    max-width:20%;
-    height:auto;
-    margin-right:3%
-}
 .earth{
     position:absolute;
     opacity:0.2;
