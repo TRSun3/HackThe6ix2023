@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import NavBar from "../components/NavBar";
+import '../styles/ResultsScreen.css';
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -24,6 +26,8 @@ export default function ResultsScreen() {
 
     return (
         <>
+        <div className="background">
+        <NavBar />
             {loading ? (
                 <div>
                     <h1>Results</h1>
@@ -54,6 +58,9 @@ export default function ResultsScreen() {
                     <h1>Loading...</h1>
                 </div>
             )}
+
+        </div>
+        
         </>
     );
 }
