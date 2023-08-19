@@ -2,22 +2,36 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* background-color: gray; */
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     padding: 40px 10% 20px 10%;
     font-size: 20px;
+    position:fixed;
+    margin-left:7%;
+}
+
+.top-logo{
+    margin-left:6%;
+    width:10%;
+    margin-top: 25px;
+    position:fixed;
 }
 
 .nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:right;
     gap: 30px;
-    background-color: green;
+    background-color: none;
     padding: 15px 20px;
-    border-radius: 40px;
-    border-color: black;
-    border-style: solid;
-    border-width: 2px;
+    color:white;
+    font-size:15px;
+}
+.whiteBoxLogo{
+    background-color: white;
+    opacity:0.3;
+    position:fixed;
+    width:11%;
+    height:25%;
+    margin-left:5%;
 }
