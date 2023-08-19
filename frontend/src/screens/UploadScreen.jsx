@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/UploadScreen.css";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -9,19 +10,16 @@ import earth from "../assets/temporary_shit_logo10.png";
 
 
 export default function UploadScreen() {
-  const [formData, setFormData] = React.useState({ item: "" });
+  const [formData, setFormData] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!window.confirm("Continue to results")) {
-      return;
-    }
-    // Code for entering the results page
+    navigate(`/results`, {state: formData});
   };
 
   const bgStyles = {
@@ -55,17 +53,18 @@ export default function UploadScreen() {
               <tr>
                 <td>
                   <input
-                    style={{ width: "20em" }}
+                    className='form-item'
                     type="string"
                     id="item"
                     name="item"
                     value={formData.item}
+                    placeholder="Enter item here"
                     onChange={handleChange}
                   />
                 </td>
                 <td>
                   <button
-                    style={{ width: "3em" }}
+                    className="form-button"
                     type="button"
                     onClick={(e) => handleSubmit(e)}
                   >
