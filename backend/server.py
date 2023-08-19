@@ -1,5 +1,5 @@
 from flask import Flask
-from get_cohere_data import get_raw_materials, get_manufacturers
+from get_cohere_data import get_raw_materials, get_manufacturers, sort_goods, sort_materials
 
 
 app = Flask(__name__)
@@ -13,10 +13,16 @@ def index():
 def returnData(product):
     raw_materials = get_raw_materials(product)
     manufacturers = get_manufacturers(product)
+    sorted_materials_data = sort_materials(raw_materials)
+    sorted_manufacturers_data = sort_goods(manufacturers)
+
     return {
-        'raw_materials': raw_materials,
-        'manufacturers': manufacturers
+        'raw_materials': sorted_materials_data,
+        'manufacturers': sorted_manufacturers_data
     }
+
+
+
 
 
 if __name__ == '__main__':
