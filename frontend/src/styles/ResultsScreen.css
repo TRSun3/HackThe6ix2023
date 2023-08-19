@@ -2,3 +2,13 @@
     background-color: black;
     height:2000px;
 }
+.title{
+    margin-top:10%;
+    display:block;
+    align-items:center;
+    justify-content:center;
+}
+.top{
+    display:flex;
+    justify-content: center;
+}

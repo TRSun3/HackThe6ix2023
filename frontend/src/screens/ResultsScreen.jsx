@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import '../styles/ResultsScreen.css';
+import bigTitle from "../assets/temporary shit logo27.png";
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -30,7 +31,10 @@ export default function ResultsScreen() {
         <NavBar />
             {loading ? (
                 <div>
-                    <h1>Results</h1>
+                    <div className="top">
+                        <img src={bigTitle} alt="" className="title" />
+                    </div>
+                    
                     { manufacturers && 
                         Object.keys(manufacturers).map((key) => {
                             console.log(key);
