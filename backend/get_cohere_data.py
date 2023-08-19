@@ -21,10 +21,10 @@ def get_cohere_data(question):
     return answer
 
 def get_raw_materials(product):
-    question = 'Who is Justin Bieber?'
+    question = 'Give me a list of the 5 main countries that produce raw materials or minerals for the Iphone and where they come from. Place the country name first followed by a ':' followed by the raw materials or minerals in one line.'
     return get_cohere_data(question)
 
 def get_manufacturers(product):
-    question = 'Who is Cardi B?'
+    question = 'The iPhone is manufactured in a number of countries, with each country responsible for a different component or part. Here is a list of the main 5 countries and the parts they are responsible for within character limit. Place the country name first followed by a ':' followed by the componenets in one line.'
     return get_cohere_data(question)
 
