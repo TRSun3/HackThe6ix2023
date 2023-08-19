@@ -20,11 +20,11 @@ def get_cohere_data(question):
     answer = llm_chain.run(question)
     return answer
 
-def get_raw_materials():
-    question = ''
+def get_raw_materials(product):
+    question = 'Who is Justin Bieber?'
     return get_cohere_data(question)
 
-def get_manufacturers():
-    question = ''
+def get_manufacturers(product):
+    question = 'Who is Cardi B?'
     return get_cohere_data(question)
 
