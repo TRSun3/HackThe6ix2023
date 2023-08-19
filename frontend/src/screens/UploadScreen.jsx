@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/UploadScreen.css";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import bg from "../assets/globe.gif";
 import centerLogo from "../assets/center-logo copy.png";
 import medias from "../assets/temporary_shit_logo8.png";
 import earth from "../assets/temporary_shit_logo10.png";
+
 
 export default function UploadScreen() {
   const [formData, setFormData] = React.useState({ item: "" });
@@ -29,7 +31,8 @@ export default function UploadScreen() {
     backgroundRepeat: "no-repeat",
     height: "100vh",
     width: "100vw",
-    top: 0,
+    top:0,
+    display: 'flex',
   };
 
   return (
@@ -90,11 +93,8 @@ export default function UploadScreen() {
           </p>
         </div>
       </div>
-      <div className="footer">
-        <p className="footerText">© EcoLink Tech 2023</p>
-        <p className="footerText1">ask@ecotechlink.com</p>
-        <img src={medias} alt="" className="socialMedia" />
-      </div>
+      
+      <Footer />
     </>
   );
 }
