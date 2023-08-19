@@ -73,10 +73,13 @@
     display:flex;
     justify-content:space-between;
     background-color: rgb(55, 55, 55);
+    height:200px;
+    vertical-align:middle;
 }
 .footerText{
     color:white;
 }
 .socialMedia{
     width:10%;
+    height:auto;
 }
