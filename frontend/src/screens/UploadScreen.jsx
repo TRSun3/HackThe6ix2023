@@ -2,8 +2,9 @@ import React from "react";
 import '../styles/UploadScreen.css';
 import NavBar from "../components/NavBar";
 import bg from "../assets/globe.gif";
-import centerLogo from "../assets/center-logo.png";
+import centerLogo from "../assets/center-logo copy.png";
 import medias from "../assets/temporary_shit_logo8.png";
+import earth from "../assets/temporary_shit_logo10.png"
 
 export default function UploadScreen() {
   const bgStyles = {
@@ -30,6 +31,7 @@ export default function UploadScreen() {
         <div className="upload-text">Upload your file here</div>
       </div>
     </div>
+    <img src={earth} alt="" className="earth"/>
     <div className="abtUsContainer" id="grad">
       <div className="aboutUs">
         <h1 className="aboutEco">About EcoLink Tech</h1>
@@ -38,7 +40,7 @@ export default function UploadScreen() {
     </div>
     <div className="footer">
       <p className="footerText">© EcoLink Tech 2023</p>
-      <p className="footerText">ask@ecotechlink.com
+      <p className="footerText1">ask@ecotechlink.com
       </p>
       <img src={medias} alt="" className="socialMedia"/>
     </div>
