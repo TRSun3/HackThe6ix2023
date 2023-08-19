@@ -13,6 +13,8 @@ export default function ResultsScreen() {
             setManufacturers(response.data.manufacturers);
             setRawMaterials(response.data.rawMaterials);
             isLoading(true);
+            console.log(manufacturers);
+            console.log(rawMaterials);
         })
         .catch((error) => {
             console.log(error);
@@ -25,22 +27,22 @@ export default function ResultsScreen() {
             {loading ? (
                 <div>
                     <h1>Results</h1>
-                    {
+                    { manufacturers && 
                         Object.keys(manufacturers).map((key) => {
                             console.log(key);
                             return (
-                            <div>
+                            <div key={key + '1'}>
                                 <h2>{key}</h2>
                                 <h3>{manufacturers[key]}</h3>
                             </div>
                         )})
                     }
 
-                    {
+                    { rawMaterials && 
                         Object.keys(rawMaterials).map((key) => {
                             console.log(key);
                             return (
-                            <div>
+                            <div key={key + '2'}>
                                 <h2>{key}</h2>
                                 <h3>{rawMaterials[key]}</h3>
                             </div>
