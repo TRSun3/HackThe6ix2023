@@ -98,6 +98,7 @@ export default function ResultsScreen() {
         <>
         {!loading ? (
             <>
+            
                 <div className="top">
                     <img src={bigTitle} alt="" className="title" />
                 </div>
@@ -108,11 +109,12 @@ export default function ResultsScreen() {
                     </div>
                     
                     <div className="right">
+                    <img src={timeline} alt="" className="timeline" />
                         {
                             Object.keys(manufacturers).map((key, index) => {
                                 return (
                                     <div ref={targetRefs[index]} id={key + '1'}>
-                                        <Card image={Logo22} country={key} desc={manufacturers[key]} />
+                                        <Card image={Logo23} country={key} desc={manufacturers[key]} />
                                     </div>
                                 )
                             })
