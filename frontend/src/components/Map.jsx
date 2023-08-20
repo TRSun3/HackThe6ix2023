@@ -84,10 +84,10 @@ class Map extends React.Component {
           zoomOnScroll={false}
           containerStyle={{   
             width: '100%',
-            height: '520px',
+            height: '100vh',
           }}
-          // onRegionClick={this.handleClick}
-          // containerClassName="left"
+          onRegionClick={this.handleClick}
+          containerClassName="map"
           regionStyle={{
             initial: {
               fill: "black",
@@ -105,16 +105,16 @@ class Map extends React.Component {
             },
             selectedHover: {},
           }}
-          // regionsSelectable={true}
-          // series={{
-          //   regions: [
-          //     {
-          //       values: data,
-          //       scale: ["#146804", color],
-          //       normalizeFunction: "polynomial",
-          //     },
-          //   ],
-          // }}
+          regionsSelectable={true}
+          series={{
+            regions: [
+              {
+                values: data,
+                scale: ["#146804", color],
+                normalizeFunction: "polynomial",
+              },
+            ],
+          }}
         />
         {/* <Container>
           {titleSet ? (
