@@ -98,10 +98,10 @@ export default function ResultsScreen() {
                         <div>
                             asljkfasfd
                         </div>
-                        <Card image={temporaryLogo22} imageNumber={1} />
-                        <Card image={temporaryLogo23} imageNumber={2} />
-                        <Card image={temporaryLogo22} imageNumber={1} />
-                        <Card image={temporaryLogo23} imageNumber={2} />
+                        <Card country={"Canada"} desc={"Hello World1"} />
+                        <Card country={"Mexico"} desc={"Hello World2"} />
+                        <Card country={"China"} desc={"Hello World3"} />
+                        <Card country={"Russia"} desc={"Hello World4"} />
                     </div>
                 </div>
             </>

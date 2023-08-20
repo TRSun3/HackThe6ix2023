@@ -1,6 +1,8 @@
 .card-container {
     width: 100%;
     height: fit-content;
+    background-color: yellow;
+    margin-bottom: 7%;
 }
 .cardImage{
     width:100px;
@@ -8,5 +10,4 @@
 }
 
 .cardText{
-    background-color: black;
 }
