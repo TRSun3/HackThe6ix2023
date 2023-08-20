@@ -67,7 +67,6 @@ export default function ResultsScreen() {
             observer.observe(ref.current);
           }
         });
-        console.log(targetRefs)
         return () => {
           observer.disconnect();
         };
@@ -75,18 +74,27 @@ export default function ResultsScreen() {
 
 
     const handleIntersection = (entries) => {
-        console.log(entries);
         const interestCountries = [];
-        console.log(targetRefs);
+        // console.log(targetRefs);
+        console.log(entries);
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const intersectingDivId = entry.target.id;
             let country = intersectingDivId.slice(0, intersectingDivId.length - 1);
             let code = null;
+            console.log(country);
             if (country === 'South Korea') country = 'Korea, Republic of'
             if (country === "Taiwan") country = "Taiwan, Province of China"
-            if (country === "Democratic Republic of the Congo") country = "Congo, the Democratic Republic of the"
+            if (~country.indexOf("Congo")) code = "CG"
             if (country === "United States") code = "US";
+            for (let i = 1; i <= 6; i++) {
+                const s = `${i}. `
+                if (~country.indexOf(s)) {
+                    country = country.slice(s.length, country.length);
+                    break;
+                }
+            }
+            console.log(country);
 
             if (code === null && country !== undefined) code = getCode(country);
 
@@ -142,7 +150,6 @@ export default function ResultsScreen() {
                     <Card image={Logo22} country="Raw Materials" />
                         {
                             Object.keys(rawMaterials).map((key, index) => {
-                                console.log(key, index + 10)
                                 return (
                                     <div ref={targetRefs[index + 10]} id={key + '2'}>
                                         <Card image={Logo23} country={key} desc={rawMaterials[key]} />
