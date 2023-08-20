@@ -14,7 +14,7 @@ export default function NavBar() {
 
     return (
         <>
-        <div className='whiteBoxLogo'></div>
+        <div className='whiteShit'></div>
         <img src={topLogo} alt="" className="top-logo"/>
         <div className='nav-container'>
             <div className='nav'>

@@ -7,6 +7,9 @@ import { useLocation } from "react-router";
 import bg from "../assets/bigglobe.gif";
 import ItemImpact from "../components/ItemImpact";
 import Map from "../components/Map";
+import Card from "../components/Card"
+import temporaryLogo22 from "../assets/temporary shit logo22.png";
+import temporaryLogo23 from "../assets/temporary shit logo23.png";
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -91,16 +94,13 @@ export default function ResultsScreen() {
                         <Map />
                     </div>
                     <div className="right">
-                        {
-                            Object.keys(manufacturers).map((key, index) => {
-                                console.log(key, index);
-                                return (
-                                    <div ref={targetRefs[index]} className="a" id={key + '1'}>
-                                        {key} - {manufacturers[key]}
-                                    </div>
-                                )
-                            })
-                        }
+                        <div>
+                            asljkfasfd
+                        </div>
+                        <Card image={temporaryLogo22} imageNumber={1} />
+                        <Card image={temporaryLogo23} imageNumber={2} />
+                        <Card image={temporaryLogo22} imageNumber={1} />
+                        <Card image={temporaryLogo23} imageNumber={2} />
                     </div>
                 </div>
             </>

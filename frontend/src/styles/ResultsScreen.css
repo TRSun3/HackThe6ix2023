@@ -45,11 +45,12 @@
     background-color: #fff;
     padding: 50px;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
   }
   
   .a {
     display: flex;
-    margin-top: 50%;
-    margin-bottom: 50%;
+    height:100px;
   }
   
