@@ -1,11 +1,12 @@
-.whiteShit{
-    width:100px;
-    height:100px;
+.card-container {
+    width: 100%;
+    height: fit-content;
 }
 .cardImage{
     width:100px;
     height:100px;
 }
+
 .cardText{
     background-color: black;
 }
