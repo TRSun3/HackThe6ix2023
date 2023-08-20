@@ -68,3 +68,16 @@
     margin-left:2%;
     color:white;
   }
+  .loadingScreen {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .loading {
+    color: white;
+  }
+  

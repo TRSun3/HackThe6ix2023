@@ -122,8 +122,8 @@ export default function ResultsScreen() {
                 </div>
             </>
         ) : (
-            <div>
-                <h1>Loading...</h1>
+            <div className="loadingScreen">
+                <h1 className="loading">Loading...</h1>
             </div>
         )}        
         </>
