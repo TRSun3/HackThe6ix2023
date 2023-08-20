@@ -14,6 +14,9 @@ export default function Card(props) {
                 <p className="Cardtext">{country}</p>
                 <p className="Cardtext">{desc}</p>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     )
 }

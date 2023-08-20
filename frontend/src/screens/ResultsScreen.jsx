@@ -10,6 +10,7 @@ import Map from "../components/Map";
 import Card from "../components/Card"
 import Logo22 from "../assets/temporary shit logo22.png";
 import Logo23 from "../assets/temporary shit logo23.png";
+import timeline from "../assets/temporary_shit_logo28.png"
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -94,10 +95,9 @@ export default function ResultsScreen() {
                     <div className="left">
                         <Map />
                     </div>
+                    
                     <div className="right">
-                        <div>
-                            asljkfasfd
-                        </div>
+                        <img src={timeline} alt="" className="timeline" />
                         <Card image={Logo22}country={"Canada"} desc={"Hello World1"} />
                         <Card image={Logo23}country={"Mexico"} desc={"Hello World2"} />
                         <Card image={Logo22}country={"China"} desc={"Hello World3"} />

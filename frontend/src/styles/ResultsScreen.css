@@ -4,7 +4,7 @@
     color: white;
 }
 .title{
-    margin-top:10%;
+    margin-top:0;
     display:block;
     align-items:center;
     justify-content:center;
@@ -13,6 +13,8 @@
 .top {
     display: flex;
     justify-content: center;
+    background-image: url("../assets/bigglobe.gif");
+    background-size:cover;
     align-items: center;
     height: 100vh;
     z-index: 10; /* Add a higher z-index to keep the top div above the map */
@@ -39,6 +41,12 @@
     overflow: hidden;
     position: relative;
     z-index: 5;
+  }
+  .timeline{
+    position:absolute;
+    height:95%;
+    left:67%;
+    top:103%;
   }
 
   .right {
