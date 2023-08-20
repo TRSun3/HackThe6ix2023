@@ -98,7 +98,7 @@ export default function ResultsScreen() {
         <>
         {!loading ? (
             <>
-            
+                <a class="backToHome"href="/">Go to Upload Screen</a>
                 <div className="top">
                     <img src={bigTitle} alt="" className="title" />
                 </div>
@@ -107,7 +107,6 @@ export default function ResultsScreen() {
                     <div className="left">
                         <Map ref={mapRef}/>
                     </div>
-                    
                     <div className="right">
                     <img src={timeline} alt="" className="timeline" />
                         {
