@@ -88,7 +88,7 @@ export default function ResultsScreen() {
             if (country === "Democratic Republic of the Congo") country = "Congo, the Democratic Republic of the"
             if (country === "United States") code = "US";
 
-            if (code === null) code = getCode(country);
+            if (code === null && country !== undefined) code = getCode(country);
 
             if (code !== null) interestCountries.push(code);
             else console.log("BAD " + country);
