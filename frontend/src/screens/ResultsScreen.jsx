@@ -131,7 +131,9 @@ export default function ResultsScreen() {
                     </div>
                     <div className="right">
                     <img src={timeline} alt="" className="timeline" />
+                    <Card image={Logo22} country="Manufacturers" />
                         {
+
                             Object.keys(manufacturers).map((key, index) => {
                                 return (
                                     <div ref={targetRefs[index]} id={key + '1'}>
@@ -140,6 +142,7 @@ export default function ResultsScreen() {
                                 )
                             })
                         }
+                    <Card image={Logo22} country="Raw Materials" />
                         {
                             Object.keys(rawMaterials).map((key, index) => {
                                 return (
