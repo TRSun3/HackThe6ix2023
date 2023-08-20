@@ -12,10 +12,12 @@ export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
     const [rawMaterials, setRawMaterials] = useState(null);
     const [device, setDevice] = useState(null);
-    const [loading, setIsLoading] = useState(false); // TODO: make it true
+    const [loading, setIsLoading] = useState(true); // TODO: make it true
     const location = useLocation();
+    const [targetRefs, setTargetRefs] = useState([])
     
     const acceptable_devices = ['iphone', 'android']
+    
 
 
     useEffect(() => {
@@ -34,6 +36,9 @@ export default function ResultsScreen() {
             const response = await axios.get(`http://localhost:5000/api/${device}`);
             setManufacturers(response.data.manufacturers);
             setRawMaterials(response.data.raw_materials);
+
+            setTargetRefs(targetRefs => Array(10).fill().map((_, i) => targetRefs[i] || React.createRef()))
+
             setIsLoading(false);
         };
 
@@ -41,18 +46,37 @@ export default function ResultsScreen() {
         if (loading) fetchData();
     }, [device]);
 
-    const bgStyles = {
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
-        width: "100vw",
-        top:0,
-        display: 'flex',
-        zIndex: -100,
-      };
 
+    useEffect(() => {
+        const options = {
+          root: null,
+          threshold: 1.0,
+        };
+    
+        const observer = new IntersectionObserver(handleIntersection, options);
+    
+        targetRefs.forEach((ref) => {
+          if (ref.current) {
+            observer.observe(ref.current);
+          }
+        });
+    
+        return () => {
+          observer.disconnect();
+        };
+    }, [targetRefs]);
+
+
+    const handleIntersection = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const intersectingDivId = entry.target.id;
+            console.log(`Div with ID ${intersectingDivId} is now at the top of the page.`);
+            // Perform your desired action for the specific div here
+          }
+        });
+    };
+    
 
     return (
         <>
@@ -67,27 +91,16 @@ export default function ResultsScreen() {
                         <Map />
                     </div>
                     <div className="right">
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
-                        <div className="a">
-                            alksjdfjklasfdjlkasdfjklasdf
-                        </div>
+                        {
+                            Object.keys(manufacturers).map((key, index) => {
+                                console.log(key, index);
+                                return (
+                                    <div ref={targetRefs[index]} className="a" id={key + '1'}>
+                                        {key} - {manufacturers[key]}
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </>
