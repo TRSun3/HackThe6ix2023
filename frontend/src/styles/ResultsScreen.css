@@ -36,8 +36,8 @@
   
   .left {
     width: 65%;
-    background-color: #333;
     color: white;
+    background-color: black;
     overflow: hidden;
     position: relative;
     z-index: 5;

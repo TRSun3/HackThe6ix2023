@@ -71,7 +71,7 @@ const Map = forwardRef(function Map(props, ref) {
       containerClassName="map"
       regionStyle={{
         initial: {
-          fill: "black",
+          fill: "#e4e4e4",
           "fill-opacity": 0.9,
           stroke: "none",
           "stroke-width": 0,

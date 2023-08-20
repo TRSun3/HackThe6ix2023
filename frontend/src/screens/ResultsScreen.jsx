@@ -43,8 +43,9 @@ export default function ResultsScreen() {
             const response = await axios.get(`http://localhost:5000/api/${device}`);
             setManufacturers(response.data.manufacturers);
             setRawMaterials(response.data.raw_materials);
+            console.log(response.data.raw_materials);
 
-            setTargetRefs(targetRefs => Array(10).fill().map((_, i) => targetRefs[i] || React.createRef()))
+            setTargetRefs(targetRefs => Array(20).fill().map((_, i) => targetRefs[i] || React.createRef()))
 
             setIsLoading(false);
         };
@@ -76,27 +77,23 @@ export default function ResultsScreen() {
     const handleIntersection = (entries) => {
         console.log(entries);
         const interestCountries = [];
-        entries = entries.reverse();
-        let toggle = 0;
+        console.log(targetRefs);
         entries.forEach((entry) => {
-          if (entry.isIntersecting || toggle === 1) {
-            toggle = 1;
-            console.log(entry.target.id);
+          if (entry.isIntersecting) {
             const intersectingDivId = entry.target.id;
             let country = intersectingDivId.slice(0, intersectingDivId.length - 1);
-            console.log(country);
+            let code = null;
             if (country === 'South Korea') country = 'Korea, Republic of'
             if (country === "Taiwan") country = "Taiwan, Province of China"
-            console.log(country);
-            console.log(getCode(country));
-            interestCountries.push(getCode(country));
+            if (country === "Democratic Republic of the Congo") country = "Congo, the Democratic Republic of the"
+            if (country === "United States") code = "US";
+
+            if (code === null) code = getCode(country);
+
+            if (code !== null) interestCountries.push(code);
+            else console.log("BAD " + country);
           }
         });
-        // if (displayCountries.length === 0 || displayCountries[displayCountries.length - 1] !== i) {
-        //     setDisplayCountries([...displayCountries]);
-        // } else {
-        //     setDisplayCountries(displayCountries.slice(0, displayCountries.length - 1));
-        // }
         updateMap(interestCountries);
     };
 
@@ -145,8 +142,9 @@ export default function ResultsScreen() {
                     <Card image={Logo22} country="Raw Materials" />
                         {
                             Object.keys(rawMaterials).map((key, index) => {
+                                console.log(key, index + 10)
                                 return (
-                                    <div ref={targetRefs[index]} id={key + '2'}>
+                                    <div ref={targetRefs[index + 10]} id={key + '2'}>
                                         <Card image={Logo23} country={key} desc={rawMaterials[key]} />
                                     </div>
                                 )
