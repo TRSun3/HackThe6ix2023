@@ -14,7 +14,7 @@ export default function ResultsScreen() {
     const [device, setDevice] = useState(null);
     const [loading, setIsLoading] = useState(true); // TODO: make it true
     const location = useLocation();
-    const [targetRefs, setTargetRefs] = useState([])
+    const [targetRefs, setTargetRefs] = useState([]);
     
     const acceptable_devices = ['iphone', 'android']
     
@@ -71,8 +71,9 @@ export default function ResultsScreen() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const intersectingDivId = entry.target.id;
-            console.log(`Div with ID ${intersectingDivId} is now at the top of the page.`);
-            // Perform your desired action for the specific div here
+            const country = intersectingDivId.slice(0, intersectingDivId.length - 1);
+
+            console.log(country);
           }
         });
     };
@@ -95,7 +96,7 @@ export default function ResultsScreen() {
                             Object.keys(manufacturers).map((key, index) => {
                                 console.log(key, index);
                                 return (
-                                    <div ref={targetRefs[index]} className="a" id={key + '1'}>
+                                    <div ref={targetRefs[index]} className="a" id={key + '1'} key={index}>
                                         {key} - {manufacturers[key]}
                                     </div>
                                 )
