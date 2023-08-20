@@ -61,11 +61,23 @@ export default function ResultsScreen() {
                 <div className="top">
                     <img src={bigTitle} alt="" className="title" />
                 </div>
+                
                 <div className="columns">
                     <div className="left">
-                        <Map />
+                        <div className="map-container">
+                            <Map />
+                        </div>
                     </div>
                     <div className="right">
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
+                        </div>
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
+                        </div>
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
+                        </div>
                         <div className="a">
                             alksjdfjklasfdjlkasdfjklasdf
                         </div>
