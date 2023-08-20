@@ -5,12 +5,14 @@ import '../styles/ResultsScreen.css';
 import bigTitle from "../assets/temporary shit logo27.png";
 import { useLocation } from "react-router";
 import bg from "../assets/bigglobe.gif";
+import ItemImpact from "../components/ItemImpact";
+import Map from "../components/Map";
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
     const [rawMaterials, setRawMaterials] = useState(null);
     const [device, setDevice] = useState(null);
-    const [loading, isLoading] = useState(false);
+    const [loading, setIsLoading] = useState(false); // TODO: make it true
     const location = useLocation();
     
     const acceptable_devices = ['iphone', 'android']
@@ -20,22 +22,23 @@ export default function ResultsScreen() {
         const fetchData = async () => {
             console.log(location.state);
             setDevice(location.state);
+            if (location.state === "null") setIsLoading(false);
             if (device === null) return;
 
             if (!acceptable_devices.includes(location.state)) {
                 setDevice("Invalid Device");
-                isLoading(true);
+                setIsLoading(false);
                 return;
             }
         
             const response = await axios.get(`http://localhost:5000/api/${device}`);
             setManufacturers(response.data.manufacturers);
             setRawMaterials(response.data.raw_materials);
-            isLoading(true);
+            setIsLoading(false);
         };
 
 
-        fetchData();
+        if (loading) fetchData();
     }, [device]);
 
     const bgStyles = {
@@ -53,34 +56,31 @@ export default function ResultsScreen() {
     return (
         <>
         <div className="background" style={bgStyles}>
-            {loading ? (
+            {!loading ? (
                 <div>
+                    <div>Results {device}</div>
                     <div className="top">
                         <img src={bigTitle} alt="" className="title" />
                     </div>
-                    
-                    <h1>Results {device}</h1>
-                    { manufacturers && 
-                        Object.keys(manufacturers).map((key) => {
-                            console.log(key);
-                            return (
-                            <div key={key + '1'}>
-                                <h2>{key}</h2>
-                                <h3>{manufacturers[key]}</h3>
+                    <div className="columns">
+                        <div className="left">
+                            <Map />
+                        </div>
+                        <div className="right">
+                            <div className="a">
+                                alksjdfjklasfdjlkasdfjklasdf
                             </div>
-                        )})
-                    }
-
-                    { rawMaterials && 
-                        Object.keys(rawMaterials).map((key) => {
-                            console.log(key);
-                            return (
-                            <div key={key + '2'}>
-                                <h2>{key}</h2>
-                                <h3>{rawMaterials[key]}</h3>
+                            <div className="a">
+                                alksjdfjklasfdjlkasdfjklasdf
                             </div>
-                        )})
-                    }
+                            <div className="a">
+                                alksjdfjklasfdjlkasdfjklasdf
+                            </div>
+                            <div className="a">
+                                alksjdfjklasfdjlkasdfjklasdf
+                            </div>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <div>
@@ -94,3 +94,24 @@ export default function ResultsScreen() {
     );
 }
 
+// { manufacturers && 
+//     Object.keys(manufacturers).map((key) => {
+//         console.log(key);
+//         return (
+//         <div key={key + '1'}>
+//             <h2>{key}</h2>
+//             <h3>{manufacturers[key]}</h3>
+//         </div>
+//     )})
+// }
+
+// { rawMaterials && 
+//     Object.keys(rawMaterials).map((key) => {
+//         console.log(key);
+//         return (
+//         <div key={key + '2'}>
+//             <h2>{key}</h2>
+//             <h3>{rawMaterials[key]}</h3>
+//         </div>
+//     )})
+// }

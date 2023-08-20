@@ -12,4 +12,35 @@
 .top{
     display:flex;
     justify-content: center;
+    height: 100vh;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.left {
+    flex: 0.65;
+    width: 100%;
+    background-color: transparent;
+    min-height: max-content;
+}
+
+.right {
+    flex: 0.35;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    background-color: yellow;
+}
+
+.a {
+    display: flex;
+    margin-top: 50%;
+    margin-bottom: 50%;
 }

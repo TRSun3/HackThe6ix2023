@@ -10,7 +10,7 @@
 // Imports
 import React from "react";
 import { VectorMap } from "react-jvectormap";
-import ColorPicker from "./ColorPicker";
+import ColorPicker from "../ColorPicker";
 import styled from "@emotion/styled";
 
 const { getName } = require("country-list");
@@ -80,11 +80,11 @@ class Map extends React.Component {
       <div>
         <VectorMap
           map={"world_mill"}
-          backgroundColor="transparent"
+          backgroundColor='transparent'
           zoomOnScroll={false}
           containerStyle={{
-            width: "1000px",
-            height: "600px",
+            width: "100%",
+            height: '100vh',
           }}
           onRegionClick={this.handleClick}
           containerClassName="map"
@@ -116,7 +116,7 @@ class Map extends React.Component {
             ],
           }}
         />
-        <Container>
+        {/* <Container>
           {titleSet ? (
             <h3>{title}</h3>
           ) : (
@@ -138,7 +138,7 @@ class Map extends React.Component {
               <div key={i}>{country}</div>
             ))}
           </div>
-        </Container>
+        </Container> */}
       </div>
     );
   }

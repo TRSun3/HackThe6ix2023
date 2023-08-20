@@ -7,7 +7,7 @@
 // Imports
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ItemImpact from "./ItemImpact";
+import ItemImpact from "./components/ItemImpact";
 import NavBar from "./components/NavBar";
 import UploadScreen from "./screens/UploadScreen";
 import ResultsScreen from "./screens/ResultsScreen";
@@ -21,6 +21,7 @@ function App() {
         <Routes>
             <Route path="/" element={<UploadScreen />} />
             <Route path="/results" element={<ResultsScreen />} />
+            <Route path="/itemimpact" element={<ItemImpact />} />
             <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
