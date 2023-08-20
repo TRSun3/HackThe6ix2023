@@ -5,7 +5,8 @@ export default function Card(props) {
     const country = props.country;
     const desc = props.desc;
     const img = props.image;
-    console.log(props);
+    // console.log(props);
+    // console.log(props);
 
     return (
         <div className='card-container'>

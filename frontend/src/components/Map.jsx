@@ -42,6 +42,15 @@ class Map extends React.Component {
     });
   };
 
+  updateMapData = (newCountriesCodesArray) => {
+    this.setState(
+      {
+        countriesCodesArray: newCountriesCodesArray,
+      },
+      () => this.getCountriesNamesList()
+    );
+  };
+
   handleClick = (e, countryCode) => {
     const { countriesCodesArray } = this.state;
     if (countriesCodesArray.indexOf(countryCode) === -1) {
@@ -105,7 +114,7 @@ class Map extends React.Component {
             },
             selectedHover: {},
           }}
-          regionsSelectable={true}
+          regionsSelectable={false}
           series={{
             regions: [
               {
