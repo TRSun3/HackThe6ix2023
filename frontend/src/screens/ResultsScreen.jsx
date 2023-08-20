@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import '../styles/ResultsScreen.css';
@@ -20,7 +20,7 @@ export default function ResultsScreen() {
     const [targetRefs, setTargetRefs] = useState([]);
     
     const acceptable_devices = ['iphone', 'android']
-    
+    const mapRef = useRef();
 
 
     useEffect(() => {
@@ -57,13 +57,12 @@ export default function ResultsScreen() {
         };
     
         const observer = new IntersectionObserver(handleIntersection, options);
-    
         targetRefs.forEach((ref) => {
           if (ref.current) {
             observer.observe(ref.current);
           }
         });
-    
+        console.log(targetRefs)
         return () => {
           observer.disconnect();
         };
@@ -71,14 +70,26 @@ export default function ResultsScreen() {
 
 
     const handleIntersection = (entries) => {
+        console.log(entries);
+        const interestCountries = [];
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const intersectingDivId = entry.target.id;
             const country = intersectingDivId.slice(0, intersectingDivId.length - 1);
 
             console.log(country);
+            interestCountries.push(country);
           }
         });
+        // updateMap(interestCountries);
+    };
+
+    const updateMap = (countries) => {
+        console.log(countries);
+        // convert to the code
+        if (mapRef.current) { // might not work lol
+          mapRef.current.updateMapData(countries);
+        }
     };
     
 
@@ -92,16 +103,18 @@ export default function ResultsScreen() {
                 
                 <div className="columns">
                     <div className="left">
-                        <Map />
+                        <Map ref={mapRef}/>
                     </div>
                     <div className="right">
-                        <div>
-                            asljkfasfd
-                        </div>
-                        <Card image={Logo22}country={"Canada"} desc={"Hello World1"} />
-                        <Card image={Logo23}country={"Mexico"} desc={"Hello World2"} />
-                        <Card image={Logo22}country={"China"} desc={"Hello World3"} />
-                        <Card image={Logo23}country={"Russia"} desc={"Hello World4"} />
+                        {
+                            Object.keys(manufacturers).map((key, index) => {
+                                return (
+                                    <div ref={targetRefs[index]} id={key + '1'}>
+                                        <Card image={Logo22} country={key} desc={manufacturers[key]} />
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </>
