@@ -30,20 +30,6 @@ class ItemImpact extends Component {
             <h1 style={{ color: "white" }}>EcoLink Tech</h1>
             <h3>Tracing Tech Origin, Nurturing Sustainability</h3>
             <div id="flex_container">
-              <Menu vertical style={{ backgroundColor: "#9bec56" }}>
-                <Menu.Item>
-                  <div className="flex_child">
-                    <h4 style={{ color: "green" }}>Select an Item</h4>
-                    <Form.Dropdown
-                      style={{ color: "blue" }}
-                      name="map"
-                      onChange={this.handleChange}
-                      options={options}
-                      value={data}
-                    />
-                  </div>
-                </Menu.Item>
-              </Menu>
               <Menu.Item style={{ textAlign: "left" }}>
                 <AccordionMenu />
               </Menu.Item>

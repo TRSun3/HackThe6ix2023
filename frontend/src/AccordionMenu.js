@@ -8,6 +8,7 @@
 
 // Imports
 import * as React from "react";
+import ResultsScreen from "./screens/ResultsScreen";
 
 /*
  * Accordion Menu that expands and collapses when clicked
@@ -36,12 +37,8 @@ const Accordion = ({ title, content }) => {
 const AccordionMenu = () => {
   const accordionData = [
     {
-      title: "title 1",
-      content: "content 1",
-    },
-    {
-      title: "title 2",
-      content: "content 2",
+      title: "Information",
+      content: ResultsScreen(),
     },
   ];
 

@@ -20,7 +20,7 @@ function App() {
         {/* <NavBar/> */}
         <Routes>
             <Route path="/" element={<UploadScreen />} />
-            <Route path="/results" element={<ResultsScreen />} />
+            <Route path="/results" element={<ItemImpact />} />
             <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
