@@ -19,13 +19,16 @@
   }
   
   .columns {
-    display: flex;
+    /* display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: top;
     height: auto;
-    margin-bottom: 5%;
+    margin-bottom: 5%; */
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
   }
   
   .left {
@@ -34,15 +37,9 @@
     color: white;
     overflow: hidden;
     position: relative;
+    z-index: 5;
   }
 
-  .map-container {
-    position: sticky;
-    top: 0%; /* Adjust as needed */
-    /* height: calc(100vh - 20%); Adjust height to match available space */
-    /* Add any additional styling */
-  }
-  
   .right {
     width: 35%;
     background-color: #fff;

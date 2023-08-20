@@ -64,9 +64,7 @@ export default function ResultsScreen() {
                 
                 <div className="columns">
                     <div className="left">
-                        <div className="map-container">
-                            <Map />
-                        </div>
+                        <Map />
                     </div>
                     <div className="right">
                         <div className="a">
