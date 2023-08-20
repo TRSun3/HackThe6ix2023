@@ -82,15 +82,15 @@ class Map extends React.Component {
           map={"world_mill"}
           backgroundColor='transparent'
           zoomOnScroll={false}
-          containerStyle={{
-            width: "100%",
-            height: '100vh',
+          containerStyle={{   
+            width: '100%',
+            height: '520px',
           }}
-          onRegionClick={this.handleClick}
-          containerClassName="map"
+          // onRegionClick={this.handleClick}
+          // containerClassName="left"
           regionStyle={{
             initial: {
-              fill: "#e4e4e4",
+              fill: "black",
               "fill-opacity": 0.9,
               stroke: "none",
               "stroke-width": 0,
@@ -105,16 +105,16 @@ class Map extends React.Component {
             },
             selectedHover: {},
           }}
-          regionsSelectable={true}
-          series={{
-            regions: [
-              {
-                values: data,
-                scale: ["#146804", color],
-                normalizeFunction: "polynomial",
-              },
-            ],
-          }}
+          // regionsSelectable={true}
+          // series={{
+          //   regions: [
+          //     {
+          //       values: data,
+          //       scale: ["#146804", color],
+          //       normalizeFunction: "polynomial",
+          //     },
+          //   ],
+          // }}
         />
         {/* <Container>
           {titleSet ? (

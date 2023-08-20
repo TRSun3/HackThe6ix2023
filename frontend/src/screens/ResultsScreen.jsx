@@ -50,46 +50,43 @@ export default function ResultsScreen() {
         width: "100vw",
         top:0,
         display: 'flex',
+        zIndex: -100,
       };
 
 
     return (
         <>
-        <div className="background" style={bgStyles}>
-            {!loading ? (
-                <div>
-                    <div>Results {device}</div>
-                    <div className="top">
-                        <img src={bigTitle} alt="" className="title" />
+        {!loading ? (
+            <>
+                <div>Results {device}</div>
+                <div className="top">
+                    <img src={bigTitle} alt="" className="title" />
+                </div>
+                <div className="columns">
+                    <div className="left">
+                        <Map />
                     </div>
-                    <div className="columns">
-                        <div className="left">
-                            <Map />
+                    <div className="right">
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
                         </div>
-                        <div className="right">
-                            <div className="a">
-                                alksjdfjklasfdjlkasdfjklasdf
-                            </div>
-                            <div className="a">
-                                alksjdfjklasfdjlkasdfjklasdf
-                            </div>
-                            <div className="a">
-                                alksjdfjklasfdjlkasdfjklasdf
-                            </div>
-                            <div className="a">
-                                alksjdfjklasfdjlkasdfjklasdf
-                            </div>
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
+                        </div>
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
+                        </div>
+                        <div className="a">
+                            alksjdfjklasfdjlkasdfjklasdf
                         </div>
                     </div>
                 </div>
-            ) : (
-                <div>
-                    <h1>Loading...</h1>
-                </div>
-            )}
-
-        </div>
-        
+            </>
+        ) : (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )}        
         </>
     );
 }

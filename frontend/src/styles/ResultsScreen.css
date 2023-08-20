@@ -27,8 +27,7 @@
 .left {
     flex: 0.65;
     width: 100%;
-    background-color: transparent;
-    min-height: max-content;
+    background-color: blue;
 }
 
 .right {
