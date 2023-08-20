@@ -58,7 +58,6 @@ export default function ResultsScreen() {
         <>
         {!loading ? (
             <>
-                <div>Results {device}</div>
                 <div className="top">
                     <img src={bigTitle} alt="" className="title" />
                 </div>

@@ -3,16 +3,18 @@
     height:2000px;
     color: white;
 }
-.title{
-    margin-top:10%;
-    display:block;
-    align-items:center;
-    justify-content:center;
+.title {
+    width: 50vw;
+    height:45vh;
+    margin-top:50vh;
+    display: block;
+    margin-top: 10%;
 }
 .top{
     display:flex;
     justify-content: center;
     height: 100vh;
+    background-color:black;
 }
 
 .columns {
