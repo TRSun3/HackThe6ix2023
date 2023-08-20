@@ -8,166 +8,96 @@
  */
 
 // Imports
-import React from "react";
+import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import { VectorMap } from "react-jvectormap";
 import ColorPicker from "../ColorPicker";
 import styled from "@emotion/styled";
+import { getName } from "country-list";
 
-const { getName } = require("country-list");
+const Map = forwardRef(function Map(props, ref) {
+  const [countriesCodesArray, setCountriesCodesArray] = useState([]);
+  const [countriesNamesArray, setCountriesNamesArray] = useState([]);
+  const [data, setData] = useState({});
+  const [title, setTitle] = useState("");
+  const [titleSet, setTitleSet] = useState(false);
+  const [color, setColor] = useState("#48aeef");
 
-class Map extends React.Component {
-  state = {
-    countriesCodesArray: [],
-    countriesNamesArray: [],
-    data: {},
-    title: "",
-    titleSet: false,
-    color: "#48aeef",
+  const handleChange = (e) => {
+    setTitle(e.target.value);
   };
 
-  handleColorChange = (color) => {
-    console.log(color.hex);
-    this.setState({ color: color.hex });
+  const handleFormSubmit = () => {
+    setTitleSet(true);
   };
 
-  handleChange = (e) => {
-    this.setState({
-      title: e.target.value,
-    });
-  };
+  useImperativeHandle(ref, () => ({
+    updateMapData: (newCountriesCodesArray) => {
+      setCountriesCodesArray(newCountriesCodesArray);
+    },
+  }));
 
-  handleFormSubmit = () => {
-    this.setState({
-      titleSet: true,
-    });
-  };
-
-  updateMapData = (newCountriesCodesArray) => {
-    this.setState(
-      {
-        countriesCodesArray: newCountriesCodesArray,
-      },
-      () => this.getCountriesNamesList()
-    );
-  };
-
-  handleClick = (e, countryCode) => {
-    const { countriesCodesArray } = this.state;
+  const handleClick = (e, countryCode) => {
     if (countriesCodesArray.indexOf(countryCode) === -1) {
-      this.setState(
-        {
-          countriesCodesArray: [...countriesCodesArray, countryCode],
-        },
-        () => this.getCountriesNamesList()
-      );
+      setCountriesCodesArray([...countriesCodesArray, countryCode]);
     }
   };
 
-  getCountriesNamesList = () => {
-    const { countriesCodesArray } = this.state;
-    const list = countriesCodesArray.map((code) => getName(code));
-    this.setState(
-      {
-        countriesNamesArray: list,
-      },
-      () => this.makeMapDataStructure()
-    );
-  };
+  useEffect(() => {
+    const getCountriesNamesList = () => {
+      const list = countriesCodesArray.map((code) => getName(code));
+      setCountriesNamesArray(list);
+      makeMapDataStructure();
+    };
 
-  makeMapDataStructure = () => {
-    const { countriesCodesArray } = this.state;
-    let obj = {};
-    countriesCodesArray.forEach((countryCode) => (obj[countryCode] = 5));
-    this.setState({
-      data: obj,
-    });
-  };
+    const makeMapDataStructure = () => {
+      let obj = {};
+      countriesCodesArray.forEach((countryCode) => (obj[countryCode] = 5));
+      setData(obj);
+    };
 
-  render() {
-    const { countriesNamesArray, data, title, titleSet, color } = this.state;
-    return (
-      <div>
-        <VectorMap
-          map={"world_mill"}
-          backgroundColor='transparent'
-          zoomOnScroll={false}
-          containerStyle={{   
-            width: '100%',
-            height: '100vh',
-          }}
-          onRegionClick={this.handleClick}
-          containerClassName="map"
-          regionStyle={{
-            initial: {
-              fill: "black",
-              "fill-opacity": 0.9,
-              stroke: "none",
-              "stroke-width": 0,
-              "stroke-opacity": 0,
-            },
-            hover: {
-              "fill-opacity": 0.8,
-              cursor: "pointer",
-            },
-            selected: {
-              fill: "#2938bc",
-            },
-            selectedHover: {},
-          }}
-          regionsSelectable={false}
-          series={{
-            regions: [
-              {
-                values: data,
-                scale: ["#146804", color],
-                normalizeFunction: "polynomial",
-              },
-            ],
-          }}
-        />
-        {/* <Container>
-          {titleSet ? (
-            <h3>{title}</h3>
-          ) : (
-            <div>
-              <h4>Set map title:</h4>
-              <form onSubmit={this.handleFormSubmit}>
-                <input type="text" onChange={this.handleChange} />
-              </form>
-            </div>
-          )}
-          <ColorPickerContainer>
-            <ColorPicker
-              handleColorChange={this.handleColorChange}
-              color={color}
-            />
-          </ColorPickerContainer>
-          <div>
-            {countriesNamesArray.map((country, i) => (
-              <div key={i}>{country}</div>
-            ))}
-          </div>
-        </Container> */}
-      </div>
-    );
-  }
-}
+    getCountriesNamesList();
+  }, [countriesCodesArray]);
+
+  return (
+    <VectorMap ref={ref}
+      map={"world_mill"}
+      backgroundColor="transparent"
+      zoomOnScroll={false}
+      containerStyle={{
+        width: '100%',
+        height: '100vh',
+      }}
+      onRegionClick={handleClick}
+      containerClassName="map"
+      regionStyle={{
+        initial: {
+          fill: "black",
+          "fill-opacity": 0.9,
+          stroke: "none",
+          "stroke-width": 0,
+          "stroke-opacity": 0,
+        },
+        hover: {
+          "fill-opacity": 0.8,
+          cursor: "pointer",
+        },
+        selected: {
+          fill: "#2938bc",
+        },
+        selectedHover: {},
+      }}
+      regionsSelectable={false}
+      series={{
+        regions: [
+          {
+            values: data,
+            scale: ["#146804", color],
+            normalizeFunction: "polynomial",
+          },
+        ],
+      }}
+    />
+  );
+});
 
 export default Map;
-
-const Container = styled.div`
-  text-align: center;
-  input {
-    padding: 10px;
-    border-radius: 5px;
-    border-shadow: 0;
-    border-style: solid;
-    font-size: 16px;
-    &:focus {
-      outline: none;
-    }
-  }
-`;
-const ColorPickerContainer = styled.div`
-  position: absolute;
-`;

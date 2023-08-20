@@ -11,6 +11,8 @@ import Card from "../components/Card"
 import Logo22 from "../assets/temporary shit logo22.png";
 import Logo23 from "../assets/temporary shit logo23.png";
 import timeline from "../assets/temporary_shit_logo28.png"
+import { getCode } from "country-list";
+
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -20,8 +22,9 @@ export default function ResultsScreen() {
     const location = useLocation();
     const [targetRefs, setTargetRefs] = useState([]);
     
+    const [countries, setCountries] = useState([]);
     const acceptable_devices = ['iphone', 'android']
-    const mapRef = useRef();
+    const mapRef = useRef(null);
 
 
     useEffect(() => {
@@ -73,26 +76,45 @@ export default function ResultsScreen() {
     const handleIntersection = (entries) => {
         console.log(entries);
         const interestCountries = [];
+        entries = entries.reverse();
+        let toggle = 0;
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting || toggle === 1) {
+            toggle = 1;
+            console.log(entry.target.id);
             const intersectingDivId = entry.target.id;
-            const country = intersectingDivId.slice(0, intersectingDivId.length - 1);
-
+            let country = intersectingDivId.slice(0, intersectingDivId.length - 1);
             console.log(country);
-            interestCountries.push(country);
+            if (country === 'South Korea') country = 'Korea, Republic of'
+            if (country === "Taiwan") country = "Taiwan, Province of China"
+            console.log(country);
+            console.log(getCode(country));
+            interestCountries.push(getCode(country));
           }
         });
-        // updateMap(interestCountries);
+        // if (displayCountries.length === 0 || displayCountries[displayCountries.length - 1] !== i) {
+        //     setDisplayCountries([...displayCountries]);
+        // } else {
+        //     setDisplayCountries(displayCountries.slice(0, displayCountries.length - 1));
+        // }
+        updateMap(interestCountries);
     };
+
+    // useEffect(() => {
+    //     console.log("display: " + displayCountries);
+    // }, [displayCountries]);
 
     const updateMap = (countries) => {
         console.log(countries);
         // convert to the code
-        if (mapRef.current) { // might not work lol
-          mapRef.current.updateMapData(countries);
+        if (mapRef.current !== null) { // might not work lol
+            console.log(mapRef.current);
+            mapRef.current.updateMapData(countries);
+        } else {
+            console.log('mapRef is null');
         }
     };
-    
+
 
     return (
         <>
@@ -115,6 +137,15 @@ export default function ResultsScreen() {
                                 return (
                                     <div ref={targetRefs[index]} id={key + '1'}>
                                         <Card image={Logo23} country={key} desc={manufacturers[key]} />
+                                    </div>
+                                )
+                            })
+                        }
+                        {
+                            Object.keys(rawMaterials).map((key, index) => {
+                                return (
+                                    <div ref={targetRefs[index]} id={key + '2'}>
+                                        <Card image={Logo23} country={key} desc={rawMaterials[key]} />
                                     </div>
                                 )
                             })
