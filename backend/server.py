@@ -13,7 +13,7 @@ def index():
 
 @app.route('/api/<product>', methods=['GET'])
 def returnData(product):
-    product = product.replaceall("%20", " ")
+    product = product.replace("%20", " ")
     print(product)
     raw_materials = get_raw_materials(product)
     manufacturers = get_manufacturers(product)
