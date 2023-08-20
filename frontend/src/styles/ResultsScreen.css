@@ -16,6 +16,7 @@
     align-items: center;
     height: 100vh;
     z-index: 10; /* Add a higher z-index to keep the top div above the map */
+    background-color:black;
   }
   
   .columns {
@@ -42,7 +43,7 @@
 
   .right {
     width: 35%;
-    background-color: #fff;
+    background-color: black;
     padding: 50px;
     overflow-y: scroll;
     display: flex;

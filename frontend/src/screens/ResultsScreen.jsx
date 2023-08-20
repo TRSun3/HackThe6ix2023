@@ -8,8 +8,8 @@ import bg from "../assets/bigglobe.gif";
 import ItemImpact from "../components/ItemImpact";
 import Map from "../components/Map";
 import Card from "../components/Card"
-import temporaryLogo22 from "../assets/temporary shit logo22.png";
-import temporaryLogo23 from "../assets/temporary shit logo23.png";
+import Logo22 from "../assets/temporary shit logo22.png";
+import Logo23 from "../assets/temporary shit logo23.png";
 
 export default function ResultsScreen() {
     const [manufacturers, setManufacturers] = useState(null);
@@ -98,10 +98,10 @@ export default function ResultsScreen() {
                         <div>
                             asljkfasfd
                         </div>
-                        <Card country={"Canada"} desc={"Hello World1"} />
-                        <Card country={"Mexico"} desc={"Hello World2"} />
-                        <Card country={"China"} desc={"Hello World3"} />
-                        <Card country={"Russia"} desc={"Hello World4"} />
+                        <Card image={Logo22}country={"Canada"} desc={"Hello World1"} />
+                        <Card image={Logo23}country={"Mexico"} desc={"Hello World2"} />
+                        <Card image={Logo22}country={"China"} desc={"Hello World3"} />
+                        <Card image={Logo23}country={"Russia"} desc={"Hello World4"} />
                     </div>
                 </div>
             </>
