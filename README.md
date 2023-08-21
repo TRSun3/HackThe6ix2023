@@ -21,3 +21,4 @@ Run `flask --app server.py run` to start the backend server
 `npm install` to install dependencies
 
 `npm start` to start the frontend server
+
