@@ -87,6 +87,7 @@ export default function ResultsScreen() {
             if (country === "Taiwan") country = "Taiwan, Province of China"
             if (~country.indexOf("Congo")) code = "CG"
             if (country === "United States") code = "US";
+            if (country === "Cote d'Ivoire") code = "CI";         
             for (let i = 1; i <= 6; i++) {
                 const s = `${i}. `
                 if (~country.indexOf(s)) {
